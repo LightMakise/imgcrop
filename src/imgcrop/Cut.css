@@ -1,0 +1,26 @@
+.cut {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  /* width: 50px; */
+  /* height: 50px; */
+  border: 2px dashed red;
+}
+.cut:hover{
+  cursor: move;
+}
+.stretch {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  bottom: -2.5px;
+  right: -2.5px;
+  border-radius: 50%;
+  background: #000;
+  z-index: 6;
+}
+.stretch:hover{
+  cursor: se-resize;
+}
