@@ -1,4 +1,22 @@
 .option {
-  width: 100px;
-  height: 200px;
+  min-width: 100px;
+  min-height: 100px;
+}
+.button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background: #31ccf7;
+  color: #fff;
+  border-radius: 5px;
+  border-style: none;
+  user-select: none;
+}
+.button:hover{
+  cursor: default;
+}
+.button.save{
+  background: #6bdc72;
+}
+.button.del{
+  background: #ea6767;
 }

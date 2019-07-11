@@ -14,15 +14,23 @@ class Option extends React.Component{
       showDel: false
     })
   }
+  save() {
+    this.props.save()
+  }
   loadingImgFinish() {
     this.setState({
       showDel: true
     })
   }
-  render() {
+  selectFile() {
+    this.props.selectFile()
+  }
+  render() { 
     return (
       <div className="option">
-        {this.state.showDel?<button onClick={this.delImg.bind(this)}>清除图片</button>:null}
+        {this.state.showDel?null:<div className="button" onClick={this.selectFile.bind(this)}>选择一张图片(或者拖拽到上方)</div>}
+        {this.state.showDel?<div className="button save" onClick={this.save.bind(this)}>保存</div>:null}
+        {this.state.showDel?<div className="button del" onClick={this.delImg.bind(this)}>清除</div>:null}
       </div>
     )
   }

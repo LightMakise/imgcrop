@@ -1,6 +1,7 @@
 .imgcrop {
-  width: 100%;
+  width: 500px;
+  height: 100px;
+  margin: 0 auto;
   box-sizing: border-box;
   padding: 20px;
-  display: flex;
 }

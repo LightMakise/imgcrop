@@ -1,15 +1,30 @@
 .droparea {
   position: relative;
   box-sizing: border-box;
-  width: 200px;
-  height: 200px;
+  min-width: 100px;
+  min-height: 100px;
   background: #ffffff33;
-  border: 2px solid #ccc;
+  border: 3px solid #31ccf7;
 }
 .droparea img {
   width: 100%;
   height: 100%;
 }
+.no-border {
+  border:none;
+}
 .file-hover {
-  border: 2px dashed #ccc;
+  border: 2px dashed #31ccf7;
+}
+.layer {
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,1);
+  opacity: .8;
 }
