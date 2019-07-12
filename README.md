@@ -8,4 +8,9 @@
 
 ![image-20190712085611324](./md/image-20190712085611324.png)
 
-### demo线上地址
+### demo线上演示地址
+
+### https://lightmakise.github.io/imgcrop/build/
+
+
+
