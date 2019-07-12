@@ -15,8 +15,8 @@ class Cut extends React.Component {
   }
   // 样式
   style = {
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
     left: 0,
     top: 0,
   }
@@ -41,8 +41,8 @@ class Cut extends React.Component {
     this.cutMoving = false
     this.stretchMoving = false
     this.style = {
-      width: 150,
-      height: 150,
+      width: 50,
+      height: 50,
       left: 0,
       top: 0,
     }
