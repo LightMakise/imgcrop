@@ -12,7 +12,7 @@ class Droparea extends React.Component {
     height:'auto'
   }
   constructor(props) {
-    console.log('props', props)
+    // console.log('props', props)
     super(props);
     this.state = {
       imgReal: this.imgReal,
@@ -26,7 +26,7 @@ class Droparea extends React.Component {
 
   }
   selectFile() {
-    console.log(this.fileInput)
+    // console.log(this.fileInput)
     this.fileInput.click()
   }
   clickFile(e) {
@@ -34,7 +34,7 @@ class Droparea extends React.Component {
     this.fileInput.value = ''
   }
   delImg() {
-    console.log('delImg');
+    // console.log('delImg');
     this.cut.init()
     this.setState({
       imgReal : {
@@ -64,7 +64,7 @@ class Droparea extends React.Component {
         width: droparea.offsetWidth,
         height: droparea.offsetHeight,
       }
-      console.log('limit', limit);
+      // console.log('limit', limit);
       this.setState({
         limit: limit
       })
@@ -76,13 +76,13 @@ class Droparea extends React.Component {
    */
   processFile(files) {
     files = this.getFile(files)
-    console.log('files', files)
+    // console.log('files', files)
     if (files.length === 0) return
     let file = new FileReader()
     file.readAsDataURL(files[0])
-    console.log('开始读取文件');
+    // console.log('开始读取文件');
     file.onload = () => {
-      console.log('文件读取完成');
+      // console.log('文件读取完成');
       this.imgShow(file.result)
       this.getImgReal(file.result)
     }
@@ -134,7 +134,6 @@ class Droparea extends React.Component {
     this.setState({
       fileEnterArea: false
     })
-    console.log('onDrop', arg, e);
     this.processFile(e.dataTransfer.files)
   }
   /**
@@ -145,7 +144,6 @@ class Droparea extends React.Component {
     this.setState({
       fileEnterArea: true
     })
-    console.log('onDragEnter');
   }
   /**
    * 文件离开
@@ -155,7 +153,6 @@ class Droparea extends React.Component {
     this.setState({
       fileEnterArea: false
     })
-    console.log('onDragLeave');
   }
   save() {
     let img = document.querySelector('#result_img')

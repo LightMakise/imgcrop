@@ -28,11 +28,21 @@ class Cut extends React.Component {
       style: this.style,
       cutImgUrl: ''
     }
-    document.addEventListener('mouseup', () => {
-      this.cutMoving = false
-      this.stretchMoving = false
-      this.cutImg(this.props.imgUrl)
-    })
+    // * 要注意绑定this 不然会有指向问题
+    document.addEventListener('mouseup', this.mouseupEvent.bind(this))
+  }
+   // 鼠标点击抬起事件
+  mouseupEvent() {
+    this.cutMoving = false
+    this.stretchMoving = false
+    this.cutImg()
+  }
+  /**
+   * 页面清除
+   */
+  componentWillUnmount() {
+    // 移除点击事件 不移除的话可能导致别的页面有问题
+    document.removeEventListener('mouseup', this.mouseupEvent)
   }
   /**
    * 初始化数据
@@ -63,6 +73,7 @@ class Cut extends React.Component {
   }
   getCutDomPosition() {
     let cutDom = document.querySelector('.cut')
+    if (!cutDom) return null
     let width = cutDom.offsetWidth || this.style.width
     let height = cutDom.offsetHeight || this.style.height
     let left = cutDom.offsetLeft || this.style.left
@@ -118,7 +129,7 @@ class Cut extends React.Component {
    */
   stretchCutDom(x, y) {
     let cutPostion = this.getCutDomPosition()
-    console.log('this.props.limit', this.props.limit);
+    // console.log('this.props.limit', this.props.limit);
     this.style.width += x
     this.style.height += y
     if (cutPostion.right > this.props.limit.width - 5) {
@@ -159,8 +170,9 @@ class Cut extends React.Component {
   /**
    * 图像剪裁
    */
-  cutImg(imgUrl) {
+  cutImg(imgUrl = this.props.imgUrl) {
     let cutPostion = this.getCutDomPosition()
+    if(!cutPostion) return 
     let sourceCanvae = this.canvasSource
     let cutResultCanvas = document.querySelector('#result')
     sourceCanvae.width = this.props.limit.width

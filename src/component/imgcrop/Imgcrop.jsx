@@ -1,7 +1,9 @@
 import React from 'react';
-import './imgcrop.css';
+import './Imgcrop.css';
 import Droparea from './Droparea'
 import Option from './Option'
+// import { createHashHistory } from 'history'
+// createHashHistory().push()
 class Imgcrop extends React.Component {
 
   constructor(props) {
