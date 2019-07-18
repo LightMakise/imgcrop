@@ -4,12 +4,13 @@
   box-sizing: border-box;
   z-index: 5;
   border: 1px dashed red;
-  background:transparent !important;
+  background: transparent !important;
 }
 
-.cut:hover{
+.cut:hover {
   cursor: move;
 }
+
 .stretch {
   position: absolute;
   width: 50px;
@@ -21,9 +22,11 @@
   opacity: 1;
   z-index: 6;
 }
-.stretch:hover{
+
+.stretch:hover {
   cursor: se-resize;
 }
+
 .hide {
   display: none;
 }

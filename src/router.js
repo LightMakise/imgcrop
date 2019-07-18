@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-
+import App from './pages/App.jsx';
 import Imgcrop from './pages/imgcrop';
 import Imgwall from './pages/imgwall/Imgwall.jsx';
 import React from 'react';
@@ -23,7 +23,7 @@ const SliderComponent = () => (
 )
 const ReactRoutDom = () => (
   <HashRouter >
-    <SliderComponent />
+      <SliderComponent />
   </HashRouter>
 )
 export default ReactRoutDom
