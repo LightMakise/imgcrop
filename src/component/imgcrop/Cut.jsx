@@ -31,7 +31,7 @@ class Cut extends React.Component {
     // * 要注意绑定this 不然会有指向问题
     document.addEventListener('mouseup', this.mouseupEvent.bind(this))
   }
-   // 鼠标点击抬起事件
+  // 鼠标点击抬起事件
   mouseupEvent() {
     this.cutMoving = false
     this.stretchMoving = false
@@ -109,20 +109,25 @@ class Cut extends React.Component {
   stretchMouseDown(arg, e) {
     this.stretchMoving = true
     this.stratPosition = {
-      x: e.clientX,
-      y: e.clientY
+      x: e.pageX ,
+      y: e.pageY
     }
+    let stretchMouseMove = (e) => {
+      this.stretchMouseMove(e)
+    }
+    document.addEventListener('mousemove', stretchMouseMove, true)
+    document.addEventListener('mouseup', () => {
+      document.removeEventListener('mousemove', stretchMouseMove, true)
+    })
     e.stopPropagation()
   }
-  stretchMouseMove(arg, e) {
-    e.stopPropagation()
-    if (this.stretchMoving) {
+  stretchMouseMove( e) {
+    // if (this.stretchMoving) {
       this.stretchCutDom(e.movementX, e.movementY)
-    }
+    // } 
   }
   stretchMouseUp(arg, e) {
-    this.stretchMoving = false
-    e.stopPropagation()
+    // this.stretchMoving = false
   }
   /**
    * 拉伸剪裁框
@@ -132,11 +137,11 @@ class Cut extends React.Component {
     // console.log('this.props.limit', this.props.limit);
     this.style.width += x
     this.style.height += y
-    if (cutPostion.right > this.props.limit.width - 5) {
-      this.style.width = this.props.limit.width - cutPostion.left - 5
+    if (cutPostion.right > this.props.limit.width) {
+      this.style.width = this.props.limit.width - cutPostion.left
     }
-    if (cutPostion.bottom > this.props.limit.height - 5) {
-      this.style.height = this.props.limit.height - cutPostion.top - 5
+    if (cutPostion.bottom > this.props.limit.height) {
+      this.style.height = this.props.limit.height - cutPostion.top
     }
     this.setState({
       style: this.style
@@ -153,14 +158,14 @@ class Cut extends React.Component {
     if (this.style.left < 0) {
       this.style.left = 0
     }
-    if (this.style.left + cutPostion.width >= this.props.limit.width - 4) {
-      this.style.left = this.props.limit.width - cutPostion.width - 4
+    if (this.style.left + cutPostion.width >= this.props.limit.width ) {
+      this.style.left = this.props.limit.width - cutPostion.width
     }
     if (this.style.top < 0) {
       this.style.top = 0
     }
-    if (this.style.top + cutPostion.height >= this.props.limit.height - 4) {
-      this.style.top = this.props.limit.height - cutPostion.height - 4
+    if (this.style.top + cutPostion.height >= this.props.limit.height) {
+      this.style.top = this.props.limit.height - cutPostion.height
     }
     this.setState({
       style: this.style
@@ -172,7 +177,7 @@ class Cut extends React.Component {
    */
   cutImg(imgUrl = this.props.imgUrl) {
     let cutPostion = this.getCutDomPosition()
-    if(!cutPostion) return 
+    if (!cutPostion) return
     let sourceCanvae = this.canvasSource
     let cutResultCanvas = document.querySelector('#result')
     sourceCanvae.width = this.props.limit.width
@@ -217,6 +222,7 @@ class Cut extends React.Component {
           top: this.state.style.top + 'px',
         }}
       >
+        <div className="size-text"> {this.state.style.width + 'x' + this.state.style.height}</div>
         {this.state.cutImgUrl !== '' ? <img src={this.state.cutImgUrl}
           id="result_img"
           onMouseDown={this.cutImgMouseDown.bind(this, e)}
@@ -225,9 +231,10 @@ class Cut extends React.Component {
         <div
           className="stretch l-t"
           onMouseDown={this.stretchMouseDown.bind(this, e)}
-          onMouseMove={this.stretchMouseMove.bind(this, e)}
+          // onMouseMove={this.stretchMouseMove.bind(this, e)}
           onMouseUp={this.stretchMouseUp.bind(this, e)}
-        ></div>
+        >
+        </div>
       </div>
     )
   }
