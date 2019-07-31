@@ -106,31 +106,42 @@ class Cut extends React.Component {
   cutMouseUp(arg, e) {
     this.cutMoving = false
   }
+  /**
+   * 按下剪裁框右下角
+   */
   stretchMouseDown(arg, e) {
     this.stretchMoving = true
     this.stratPosition = {
-      x: e.pageX ,
+      x: e.pageX,
       y: e.pageY
     }
     let stretchMouseMove = (e) => {
       this.stretchMouseMove(e)
     }
+    /**
+     * 创建一个全局的鼠标移动事件
+     * 鼠标抬起的时候在移除该事件
+     */
     document.addEventListener('mousemove', stretchMouseMove, true)
     document.addEventListener('mouseup', () => {
       document.removeEventListener('mousemove', stretchMouseMove, true)
     })
     e.stopPropagation()
   }
-  stretchMouseMove( e) {
-    // if (this.stretchMoving) {
-      this.stretchCutDom(e.movementX, e.movementY)
-    // } 
+  /**
+   * 剪裁框右下角拖拽进行扩大或缩小
+   * 实际的扩大或缩小的就是鼠标移动的距离
+   * movementX,movementY 扩大为正 缩小为负
+   */
+  stretchMouseMove(e) {
+    this.stretchCutDom(e.movementX, e.movementY)
   }
   stretchMouseUp(arg, e) {
-    // this.stretchMoving = false
+
   }
   /**
    * 拉伸剪裁框
+   * 不能超出图片的范围
    */
   stretchCutDom(x, y) {
     let cutPostion = this.getCutDomPosition()
@@ -158,7 +169,7 @@ class Cut extends React.Component {
     if (this.style.left < 0) {
       this.style.left = 0
     }
-    if (this.style.left + cutPostion.width >= this.props.limit.width ) {
+    if (this.style.left + cutPostion.width >= this.props.limit.width) {
       this.style.left = this.props.limit.width - cutPostion.width
     }
     if (this.style.top < 0) {
@@ -222,7 +233,7 @@ class Cut extends React.Component {
           top: this.state.style.top + 'px',
         }}
       >
-        <div className="size-text"> {this.state.style.width + 'x' + this.state.style.height}</div>
+        <div className="size-text"> {this.state.style.width + ' x ' + this.state.style.height}</div>
         {this.state.cutImgUrl !== '' ? <img src={this.state.cutImgUrl}
           id="result_img"
           onMouseDown={this.cutImgMouseDown.bind(this, e)}
