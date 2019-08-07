@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import './Droparea.css';
-import Cut from './Cut.jsx';
+import Cut from './cut/Cut.jsx';
 class Droparea extends React.Component {
   // 图片类型
   imgsType = ['image/jpeg', 'image/png']
@@ -76,7 +76,6 @@ class Droparea extends React.Component {
    */
   processFile(files) {
     files = this.getFile(files)
-    // console.log('files', files)
     if (files.length === 0) return
     let file = new FileReader()
     file.readAsDataURL(files[0])

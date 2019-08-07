@@ -1,0 +1,10 @@
+.area{
+  position: relative;
+  width: 505px;
+  height: 500px;
+  border: 1px dashed #ccc;
+  margin: 100px auto;
+}
+.imgwall .button {
+  width: 505px;
+}

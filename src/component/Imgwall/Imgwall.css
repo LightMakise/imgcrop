@@ -1,0 +1,7 @@
+.area{
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  margin: 100px auto;
+}

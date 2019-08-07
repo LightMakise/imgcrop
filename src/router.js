@@ -1,16 +1,24 @@
 /* eslint-disable react/react-in-jsx-scope */
-import App from './pages/App.jsx';
 import Imgcrop from './pages/imgcrop';
 import Imgwall from './pages/imgwall/Imgwall.jsx';
+import Arkanoid from './pages/arkanoid/Arkanoid.jsx';
 import React from 'react';
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
-const routeConfig = [
+export const routeConfig = [
   {
     path: '/imgcrop',
     component: Imgcrop,
-  }, {
+    name: '图片剪裁'
+  }, 
+  {
     path: '/imgwall',
     component: Imgwall,
+    name: '不规则图片墙'
+  },
+  {
+    path: '/arkanoid',
+    component: Arkanoid,
+    name: '打砖块'
   }
 ]
 const SliderComponent = () => (
@@ -21,9 +29,9 @@ const SliderComponent = () => (
     <Redirect from="/" to="/imgcrop" />
   </Switch>
 )
-const ReactRoutDom = () => (
+export const ReactRouteDom = () => (
   <HashRouter >
       <SliderComponent />
   </HashRouter>
 )
-export default ReactRoutDom
+

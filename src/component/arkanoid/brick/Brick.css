@@ -1,0 +1,12 @@
+.brick{
+  width: 50px;
+  height: 20px;
+  background: #00ffff;
+  float: left;
+  margin: 2px;
+  border: 1px solid #037c7c;
+}
+.brick-hide {
+  background: #fff;
+  border-color: #fff;
+}

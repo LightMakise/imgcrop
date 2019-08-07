@@ -92,7 +92,10 @@ class Cut extends React.Component {
     }
   }
   cutMouseDown(arg, e) {
-    this.cutMoving = true
+    // 点击左键
+    if (e.button === 0) {
+      this.cutMoving = true
+    }
   }
   cutMouseMove(arg, e) {
     if (this.cutMoving) {
@@ -110,6 +113,10 @@ class Cut extends React.Component {
    * 按下剪裁框右下角
    */
   stretchMouseDown(arg, e) {
+    // 不是点击左键直接返回
+    if (e.button !== 0) {
+      return
+    }
     this.stretchMoving = true
     this.stratPosition = {
       x: e.pageX,

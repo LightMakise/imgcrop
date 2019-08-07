@@ -1,16 +1,17 @@
 import React from 'react';
+import './Imgwall.css';
 import Component from '../../extends/Component.jsx';
-class Imagewall extends Component{
-  // eslint-disable-next-line no-useless-constructor
+class Imagewall extends Component {
   constructor(props) {
     super(props)
-  }
-  componentDidMount() {
-    
+    this.state = {
+
+    }
   }
   render() {
     return (
-      <div className="imgwall"></div>
+      <div className="imgwall">
+      </div>
     )
   }
 }

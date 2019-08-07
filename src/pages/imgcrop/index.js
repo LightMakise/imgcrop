@@ -5,7 +5,6 @@ import Imgcrop from '../../component/imgcrop/Imgcrop.jsx';
 class Index extends React.Component {
   constructor(props) {
     super(props)
-    console.log(this.props);
   }
   render() {
     return (

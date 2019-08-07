@@ -1,7 +1,7 @@
 import React from 'react';
 import './Imgcrop.css';
-import Droparea from './Droparea'
-import Option from './Option'
+import Droparea from './droparea/Droparea.jsx'
+import Option from './option/Option.jsx'
 
 class Imgcrop extends React.Component {
 
@@ -10,9 +10,6 @@ class Imgcrop extends React.Component {
     this.state = {
 
     }
-  }
-  componentWillMount() {
-
   }
   delImg() {
     this.droparea.delImg()
