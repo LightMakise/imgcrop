@@ -1,7 +1,28 @@
-.area{
+.img-wall {
+  width: 100%;
   position: relative;
-  width: 500px;
-  height: 500px;
+  height: 100vh;
+  overflow: auto;
+}
+.img-item {
+  width: 24%;
+  margin-left: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  float: left;
+  padding: 5px;
   border: 1px solid #ccc;
-  margin: 100px auto;
+  border-radius: 5px;
+}
+.img-item img {
+  width: 100%;
+}
+.loading{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 5;
 }

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import './Droparea.css';
-import Cut from './cut/Cut.jsx';
+import Cut from '../cut/Cut.jsx';
 class Droparea extends React.Component {
   // 图片类型
   imgsType = ['image/jpeg', 'image/png']

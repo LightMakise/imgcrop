@@ -24,4 +24,5 @@ li:hover{
 .active {
   background: rgb(122, 134, 146);
   cursor: pointer;
+  border-right: 3px solid rgb(199, 207, 216);
 }
