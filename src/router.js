@@ -2,6 +2,7 @@
 import Imgcrop from './pages/imgcrop';
 import Imgwall from './pages/imgwall/Imgwall.jsx';
 import Arkanoid from './pages/arkanoid/Arkanoid.jsx';
+import Map from './pages/map/Map.jsx';
 import React from 'react';
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
 export const routeConfig = [
@@ -19,7 +20,12 @@ export const routeConfig = [
     path: '/arkanoid',
     component: Arkanoid,
     name: '打砖块'
-  }
+  },
+  {
+    path: '/map',
+    component: Map,
+    name: '高德地图'
+  },
 ]
 const SliderComponent = () => (
   <Switch>

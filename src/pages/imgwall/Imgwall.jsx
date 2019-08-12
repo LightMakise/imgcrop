@@ -1,5 +1,5 @@
 import React from 'react';
-import ImgwallComponent from '../../component/Imgwall/Imgwall.jsx'
+import ImgwallComponent from '../../component/imgwall/Imgwall.jsx'
 import Component from '../../extends/Component';
 class Imgwall extends Component {
   constructor(props) {

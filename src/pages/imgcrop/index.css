@@ -1,6 +1,6 @@
 .imgcrop-page {
   text-align: center;
 }
-canvas{
+.imgcrop-page canvas{
   display: none;
 }
