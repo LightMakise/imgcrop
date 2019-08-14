@@ -75,7 +75,7 @@ class Imagewall extends Component {
     console.dir(imgwall.scrollTop);
     let allImgItem = Array.from(document.querySelectorAll('.img-item'))
     // console.log('allImgItem', allImgItem);
-    let screenWidth = imgwall.clientWidth
+    // let screenWidth = imgwall.clientWidth
     // console.log('screenWidth', screenWidth);
     // 一行4个
     let rol = 4

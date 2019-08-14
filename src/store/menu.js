@@ -1,0 +1,1 @@
+export const SET_STATE = 'SET_STATE' // 设置座位

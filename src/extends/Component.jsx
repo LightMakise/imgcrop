@@ -4,6 +4,9 @@ import { createHashHistory } from 'history'
 class Component extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      
+    }
   }
   /**
    * 页面跳转
